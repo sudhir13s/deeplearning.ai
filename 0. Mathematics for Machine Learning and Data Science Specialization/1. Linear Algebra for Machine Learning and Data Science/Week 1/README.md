@@ -16,61 +16,51 @@ The following is a reference for the notations used in this course. It may assis
 
 ### Notations and Explanations
 
-- **$A, B, C$**  
-  Capital letters represent matrices.  
+- **$A, B, C$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Capital letters represent matrices.  
 
-- **$u, v, w$**  
-  Lowercase letters represent vectors.  
+- **$u, v, w$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Lowercase letters represent vectors.  
 
-- **$A$ of size $m \times n$**  
-  Matrix $A$ has $m$ rows and $n$ columns.  
+- **$A (m \times n)$** : &emsp; Matrix $A$ has $m$ rows and $n$ columns.  
 
-- **$A^T$**  
-  The transpose of matrix $A$.  
+- **$A^T$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The transpose of matrix $A$.  
 
-- **$v^T$**  
-  The transpose of vector $v$.  
+- **$v^T$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The transpose of vector $v$.  
 
-- **$A^{-1}$**  
-  The inverse of matrix $A$.  
+- **$A^{-1}$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The inverse of matrix $A$.  
 
-- **$\det(A)$**  
-  The determinant of matrix $A$.  
+- **$\det(A)$**  : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The determinant of matrix $A$.  
 
-- **$AB$**  
-  Matrix multiplication of matrices $A$ and $B$.  
+- **$AB$**: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Matrix multiplication of matrices $A$ and $B$.  
 
-- **$u \cdot v$** or **$\langle u, v \rangle$**  
-  Dot product of vectors $u$ and $v$.  
+- **$u \cdot v$** or **$\langle u, v \rangle$** :  Dot product of vectors $u$ and $v$.  
 
-- **$\mathbb{R}$**  
-  The set of real numbers, e.g., $0, -0.642, 2, 3.456$.  
+- **$\mathbb{R}$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The set of real numbers, e.g., $0, -0.642, 2, 3.456$.  
 
-- **$\mathbb{R}^2$**  
-  The set of two-dimensional vectors, e.g., $v = \begin{bmatrix} 1 \\ 3 \end{bmatrix}^T$.  
+- **$\mathbb{R}^2$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The set of two-dimensional vectors, e.g., $v = \begin{bmatrix} 1 \\ 3 \end{bmatrix}^T$.  
 
-- **$\mathbb{R}^n$**  
-  The set of $n$-dimensional vectors.  
+- **$\mathbb{R}^n$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; The set of $n$-dimensional vectors.  
 
-- **$v \in \mathbb{R}^2$**  
-  Vector $v$ is an element of $\mathbb{R}^2$.  
+- **$v \in \mathbb{R}^2$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Vector $v$ is an element of $\mathbb{R}^2$.  
 
-- **$\|v\|_1$**  
-  L1-norm of a vector.  
+- **$\|v\|_1$** : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; L1-norm of a vector.  
 
-- **$\|v\|_2$, $\|v\|$, $|v|$**  
-  L2-norm of a vector.  
+- **$\|v\|_2$, $\|v\|$, $|v|$** : L2-norm of a vector.  
 
-- **$T: \mathbb{R}^2 \to \mathbb{R}^3$**  
-  Transformation $T$ of a vector $v \in \mathbb{R}^2$ into the vector $w \in \mathbb{R}^3$.  
+- **$T: \mathbb{R}^2 \to \mathbb{R}^3$** : Transformation $T$ of a vector $v \in \mathbb{R}^2$ into the vector $w \in \mathbb{R}^3$.  
 
-- **$T(v) = w$**  
-  Transformation applied to vector $v$ resulting in vector $w$.  
+- **$T(v) = w$** : &emsp;&emsp;&emsp;&emsp;&emsp; Transformation applied to vector $v$ resulting in vector $w$.  
 
 ---
+## Determinant of a Matrix
 
+The determinant of a square matrix \(A\) is a scalar value that provides important information about the matrix:
+- Whether the matrix is invertible (non-singular) or not (singular).
+- Geometric interpretation such as area (2D) or volume (3D) scaling factor of the linear transformation defined by the matrix.
 
-# Determinant of a 3×3 Matrix
+Mathematically:
+\[$det(A) = \text{some scalar based on the entries of } A.$\]
+
+## Determinant of a 3×3 Matrix
 
 The determinant of a **3×3 matrix** can be calculated using the following formula:
 
@@ -131,6 +121,26 @@ $
 $
 
 ---
+
+## Singular matrix and non-singular matrix
+
+- A **singular matrix** is a square matrix that does not have an inverse. This happens when its determinant is **zero**.
+- A **non-singular matrix** is a square matrix that has an inverse. This happens when its determinant is **non-zero**.
+
+
+| **Feature**                  | **Singular Matrix**                                 | **Non-Singular Matrix**                             |
+|----------------------------- |-----------------------------------------------------|-----------------------------------------------------|
+| **Determinant**             | $( \det(A) = 0 )$                                   | $( \det(A) \neq 0 )$                                |
+| **Invertibility**            | Not invertible (no $(A^{-1})$ exists)               | Invertible (exists $(A^{-1})$ with $(AA^{-1} = I))$ |
+| **Rank**                     | Less than its dimension (not full rank)             | Equal to its dimension (full rank)                  |
+| **Linear Dependence**        | Rows (or columns) are linearly dependent            | Rows (or columns) are linearly independent          |
+| **Solutions to \(A\mathbf{x} = \mathbf{b}\)** | No unique solution (either none or infinitely many) | Exactly one unique solution                         |
+| **Geometric Interpretation** | Transformation “collapses” space (volume/area = 0)  | Transformation is bijective (no collapse)           |
+| **Examples**                 | $\begin{pmatrix}1 & 2 \\ 2 & 4\end{pmatrix}$        | $\begin{pmatrix}2 & 1 \\ 1 & 3\end{pmatrix}$        |
+
+-------
+
+
 
 ## Notes
 
